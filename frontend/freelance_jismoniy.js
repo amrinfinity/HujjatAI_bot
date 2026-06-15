@@ -180,7 +180,10 @@ form.addEventListener("submit", async (e) => {
     resultDiv.scrollIntoView({ behavior: "smooth" });
   } catch (err) {
     resultDiv.className = "result error";
-    resultDiv.innerHTML = `<strong>❌ Xatolik:</strong> ${err.message || "Xatolik yuz berdi, qayta urinib ko'ring"}`;
+    const msg = err.message === "Failed to fetch"
+      ? "Server bilan bog'lanib bo'lmadi. Render backend uyg'onguncha 30-60 soniya kutib, qayta urinib ko'ring."
+      : (err.message || "Xatolik yuz berdi, qayta urinib ko'ring");
+    resultDiv.innerHTML = `<strong>❌ Xatolik:</strong> ${msg}`;
     tg?.HapticFeedback?.notificationOccurred("error");
   } finally {
     submitBtn.disabled = false;

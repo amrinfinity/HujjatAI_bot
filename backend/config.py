@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 from dotenv import load_dotenv
 
@@ -22,8 +23,13 @@ class Config:
             "http://127.0.0.1:5500",
             "http://localhost:8080",
             "http://127.0.0.1:8080",
+            "https://hujjat-ai-bot.vercel.app",
         }
-        # Vercel preview URL lar (masalan: https://hujjat-ai-xxx.vercel.app)
+        for url in (cls.WEBAPP_URL, cls.FRONTEND_URL):
+            if url:
+                parsed = urlparse(url)
+                if parsed.scheme and parsed.netloc:
+                    origins.add(f"{parsed.scheme}://{parsed.netloc}")
         extra = os.getenv("CORS_EXTRA_ORIGINS", "")
         for origin in extra.split(","):
             origin = origin.strip()

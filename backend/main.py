@@ -29,6 +29,7 @@ app = FastAPI(title="Hujjat AI", version="2.6.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=Config.cors_origins(),
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
