@@ -157,8 +157,9 @@ def create_rental_pdf(data: RentalContractData, filepath: Path) -> None:
         f"Xonalar soni: {data.rooms_count}. Qavat: {data.floor}.",
         styles["body"],
     ))
+    furnished_text = "Ha" if data.furnished else "Yo'q"
     story.append(p(
-        f"Mebellangan: {'Ha' if data.furnished else 'Yo\'q'}. Texnika: {appliances}.",
+        f"Mebellangan: {furnished_text}. Texnika: {appliances}.",
         styles["body"],
     ))
 
