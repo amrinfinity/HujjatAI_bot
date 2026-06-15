@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tez orada — Hujjat AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-body">
+  <div class="home coming-soon">
+    <a href="index.html" class="back-link">← Bosh sahifa</a>
+    <div class="coming-soon-box">
+      <span class="coming-soon-icon">🚧</span>
+      <h1>Tez orada</h1>
+      <p id="coming-title">Bu hujjat turi hozircha ishlab chiqilmoqda.</p>
+      <a href="index.html" class="submit-btn coming-soon-btn">Bosh sahifaga qaytish</a>
+    </div>
+  </div>
+  <script>
+    const titles = {
+      rental: "Uy Ijara Shartnomasi",
+      commercial: "Kommersiya Ijarasi",
+      act: "Xizmat Akti",
+    };
+    const key = new URLSearchParams(location.search).get("p") || "";
+    if (titles[key]) document.getElementById("coming-title").textContent = titles[key] + " tez orada qo'shiladi.";
+  </script>
+</body>
+</html>

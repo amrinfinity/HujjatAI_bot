@@ -1,0 +1,32 @@
+services:
+  # Backend API (PDF generatsiya)
+  - type: web
+    name: hujjat-ai-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: FRONTEND_URL
+        sync: false
+      - key: HOST
+        value: 0.0.0.0
+
+  # Telegram bot (24/7 ishlashi uchun)
+  - type: worker
+    name: hujjat-ai-bot
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBAPP_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Uy Ijara Shartnomasi — Hujjat AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app app-wide">
+    <header class="header">
+      <a href="index.html" class="back-link">← Bosh sahifa</a>
+      <div class="logo">🏠</div>
+      <h1>Uy Ijara Shartnomasi</h1>
+      <p class="subtitle">Jismoniy shaxslar o'rtasida rasmiy ijara shartnomasi</p>
+    </header>
+
+    <main class="form-card">
+      <div class="step-progress" id="step-progress"></div>
+
+      <form id="rental-form" novalidate>
+        <!-- QADAM 1 -->
+        <div class="step-panel active" data-step="1">
+          <h2 class="step-title">Qadam 1: Shartnoma ma'lumotlari</h2>
+          <div class="field"><label>Shartnoma raqami *</label><input type="text" id="contract_number" name="contract_number" required></div>
+          <div class="field"><label>Tuzilgan sana *</label><input type="date" id="contract_date" name="contract_date" required></div>
+          <div class="field"><label>Tuzilgan joy *</label><input type="text" name="contract_place" placeholder="Toshkent sh." required></div>
+          <div class="field"><label>Ijara muddati *</label>
+            <select name="rental_period" required>
+              <option value="6 oy">6 oy</option>
+              <option value="1 yil" selected>1 yil</option>
+              <option value="2 yil">2 yil</option>
+              <option value="3 yil">3 yil</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- QADAM 2 -->
+        <div class="step-panel" data-step="2">
+          <h2 class="step-title">Qadam 2: Ijaraga beruvchi (Egasi)</h2>
+          <div class="field"><label>F.I.Sh. *</label><input type="text" name="landlord_full_name" required></div>
+          <div class="field-row">
+            <div class="field"><label>Tug'ilgan sana *</label><input type="date" name="landlord_birth_date" required></div>
+            <div class="field"><label>Pasport seriyasi va raqami *</label><input type="text" name="landlord_passport" required></div>
+          </div>
+          <div class="field"><label>JSHSHIR/PINFL * (14 raqam)</label><input type="text" name="landlord_pinfl" pattern="\d{14}" maxlength="14" required></div>
+          <div class="field"><label>Yashash manzili *</label><textarea name="landlord_address" rows="2" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Telefon *</label><input type="tel" name="landlord_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="landlord_email" required></div>
+          </div>
+          <div class="field"><label>Mulk huquqi hujjati *</label><input type="text" name="landlord_property_doc" placeholder="Kadastr raqami yoki guvohnoma" required></div>
+        </div>
+
+        <!-- QADAM 3 -->
+        <div class="step-panel" data-step="3">
+          <h2 class="step-title">Qadam 3: Ijaraga oluvchi</h2>
+          <div class="field"><label>F.I.Sh. *</label><input type="text" name="tenant_full_name" required></div>
+          <div class="field-row">
+            <div class="field"><label>Tug'ilgan sana *</label><input type="date" name="tenant_birth_date" required></div>
+            <div class="field"><label>Pasport seriyasi va raqami *</label><input type="text" name="tenant_passport" required></div>
+          </div>
+          <div class="field"><label>JSHSHIR/PINFL * (14 raqam)</label><input type="text" name="tenant_pinfl" pattern="\d{14}" maxlength="14" required></div>
+          <div class="field"><label>Yashash manzili (doimiy) *</label><textarea name="tenant_address" rows="2" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Telefon *</label><input type="tel" name="tenant_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="tenant_email" required></div>
+          </div>
+          <div class="field"><label>Ish joyi</label><input type="text" name="tenant_workplace"></div>
+        </div>
+
+        <!-- QADAM 4 -->
+        <div class="step-panel" data-step="4">
+          <h2 class="step-title">Qadam 4: Ijara ob'ekti</h2>
+          <div class="field"><label>Manzil *</label><textarea name="property_address" rows="2" placeholder="Shahar, ko'cha, uy, kvartira" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Uy turi *</label>
+              <select name="property_type" required>
+                <option value="Kvartira">Kvartira</option>
+                <option value="Xonadon">Xonadon</option>
+                <option value="Uy">Uy</option>
+                <option value="Xona">Xona</option>
+              </select>
+            </div>
+            <div class="field"><label>Umumiy maydoni (m²) *</label><input type="number" name="total_area" min="1" step="0.1" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Xonalar soni *</label><input type="number" name="rooms_count" min="1" required></div>
+            <div class="field"><label>Qavat *</label><input type="number" name="floor" min="0" required></div>
+          </div>
+          <div class="field"><label>Mebellanganmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="furnished" value="true"> Ha</label>
+              <label><input type="radio" name="furnished" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+          <div class="field"><label>Texnika ro'yxati</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="appliances" value="Konditsioner"> Konditsioner</label>
+              <label><input type="checkbox" name="appliances" value="Kir yuvish mashinasi"> Kir yuvish mashinasi</label>
+              <label><input type="checkbox" name="appliances" value="Sovutgich"> Sovutgich</label>
+              <label><input type="checkbox" name="appliances" value="Televizor"> Televizor</label>
+              <label><input type="checkbox" name="appliances" value="Internet"> Internet</label>
+              <label><input type="checkbox" name="appliances" value="Boshqa" id="appliance-other-cb"> Boshqa</label>
+            </div>
+          </div>
+          <div class="field hidden" id="other-appliances-field">
+            <label>Boshqa texnika</label><input type="text" name="other_appliances">
+          </div>
+        </div>
+
+        <!-- QADAM 5 -->
+        <div class="step-panel" data-step="5">
+          <h2 class="step-title">Qadam 5: To'lov shartlari</h2>
+          <div class="field-row">
+            <div class="field"><label>Oylik ijara haqi *</label><input type="number" id="monthly_rent" name="monthly_rent" min="0" step="0.01" required></div>
+            <div class="field"><label>Valyuta *</label>
+              <select name="currency" required><option value="UZS">UZS</option><option value="USD">USD</option></select>
+            </div>
+          </div>
+          <div class="field"><label>Garov puli *</label><input type="number" id="deposit" name="deposit" min="0" step="0.01" required></div>
+          <div class="field"><label>To'lov kuni *</label>
+            <select name="payment_day" required>
+              <option value="Har oyning 1-5 sanasi">Har oyning 1-5 sanasi</option>
+              <option value="Har oyning 5-10 sanasi">Har oyning 5-10 sanasi</option>
+              <option value="Har oyning 10-15 sanasi">Har oyning 10-15 sanasi</option>
+            </select>
+          </div>
+          <div class="field"><label>To'lov usuli *</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="payment_methods" value="Naqd"> Naqd</label>
+              <label><input type="checkbox" name="payment_methods" value="Karta"> Karta</label>
+              <label><input type="checkbox" name="payment_methods" value="Bank o'tkazmasi"> Bank o'tkazmasi</label>
+            </div>
+          </div>
+          <div class="field"><label>Kommunal to'lovlar kim tomonidan? *</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="utilities_paid_by" value="landlord"> Ijaraga beruvchi</label>
+              <label><input type="checkbox" name="utilities_paid_by" value="tenant"> Ijaraga oluvchi</label>
+              <label><input type="checkbox" name="utilities_paid_by" value="partial" id="utilities-partial-cb"> Qisman</label>
+            </div>
+          </div>
+          <div class="field hidden" id="utilities-note-field">
+            <label>Qisman to'lov izohi</label><input type="text" name="utilities_note" placeholder="Masalan: gaz va suv ijarachi tomonidan">
+          </div>
+          <div class="field"><label>Kechiktirilgan to'lov penya foizi (%/kun)</label><input type="number" name="penalty_percent" value="0.5" min="0" step="0.01"></div>
+        </div>
+
+        <!-- QADAM 6 -->
+        <div class="step-panel" data-step="6">
+          <h2 class="step-title">Qadam 6: Qo'shimcha shartlar</h2>
+          <div class="field"><label>Uy hayvonlari ruxsatmi? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="pets_allowed" value="Ha"> Ha</label>
+              <label><input type="radio" name="pets_allowed" value="Yo'q" checked> Yo'q</label>
+              <label><input type="radio" name="pets_allowed" value="Kelishilgan holda"> Kelishilgan holda</label>
+            </div>
+          </div>
+          <div class="field"><label>Mehmonlar qolishi *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="guests_policy" value="Ruxsat" checked> Ruxsat</label>
+              <label><input type="radio" name="guests_policy" value="Cheklangan"> Cheklangan</label>
+              <label><input type="radio" name="guests_policy" value="Taqiqlangan"> Taqiqlangan</label>
+            </div>
+          </div>
+          <div class="field"><label>Chekish ruxsatmi? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="smoking_policy" value="Ha"> Ha</label>
+              <label><input type="radio" name="smoking_policy" value="Yo'q" checked> Yo'q</label>
+              <label><input type="radio" name="smoking_policy" value="Faqat balkonda"> Faqat balkonda</label>
+            </div>
+          </div>
+          <div class="field"><label>Tuzatishlar kim tomonidan? *</label>
+            <select name="repairs_by" required>
+              <option value="Ijaraga beruvchi">Ijaraga beruvchi</option>
+              <option value="Ijaraga oluvchi">Ijaraga oluvchi</option>
+              <option value="Kelishilgan holda">Kelishilgan holda</option>
+            </select>
+          </div>
+          <div class="field"><label>Maksimal tuzatish summasi</label><input type="number" name="max_repair_amount" min="0" step="0.01"></div>
+        </div>
+
+        <!-- QADAM 7 -->
+        <div class="step-panel" data-step="7">
+          <h2 class="step-title">Qadam 7: Kafolat va javobgarlik</h2>
+          <div class="field"><label>Garov qaytarish shartlari *</label>
+            <textarea name="deposit_return_terms" rows="3" required placeholder="Ijara muddati tugagach, mulk yaxshi holatda qaytarilganda garov puli qaytariladi..."></textarea>
+          </div>
+          <div class="field"><label>Oldindan ogohlantirish muddati (kun)</label><input type="number" name="notice_days" value="30" min="1"></div>
+          <div class="field"><label>Shartnomani muddatidan oldin bekor qilish jarimasi</label><input type="number" name="early_termination_penalty" min="0" step="0.01"></div>
+          <div class="field"><label>Mulkka zarar yetkazilganda javobgarlik *</label>
+            <textarea name="damage_liability" rows="2" required placeholder="Ijarachi yetkazilgan zararni to'liq qoplaydi..."></textarea>
+          </div>
+        </div>
+
+        <!-- QADAM 8 -->
+        <div class="step-panel" data-step="8">
+          <h2 class="step-title">Qadam 8: Yakuniy ma'lumotlar</h2>
+          <div class="field"><label>Elektron imzo kerakmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="electronic_signature" value="true"> Ha</label>
+              <label><input type="radio" name="electronic_signature" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+          <div class="field"><label>Guvohlar kerakmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="witnesses_required" value="true" id="witnesses-yes"> Ha</label>
+              <label><input type="radio" name="witnesses_required" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+          <div class="field hidden" id="witnesses-count-field">
+            <label>Guvohlar soni</label><input type="number" name="witnesses_count" value="2" min="1" max="4">
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" id="prev-btn" class="btn-secondary" disabled>← Orqaga</button>
+          <button type="button" id="next-btn" class="btn-secondary">Keyingi →</button>
+          <button type="submit" id="submit-btn" class="submit-btn hidden">📄 Shartnomani yaratish</button>
+        </div>
+      </form>
+      <div id="result" class="result hidden"></div>
+    </main>
+
+    <footer class="footer"><p>@HujjatAI_Bot orqali yaratildi</p></footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="rental.js"></script>
+</body>
+</html>

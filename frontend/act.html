@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Xizmat Akti — Hujjat AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app app-wide">
+    <header class="header">
+      <a href="index.html" class="back-link">← Bosh sahifa</a>
+      <div class="logo">✅</div>
+      <h1>Xizmat Ko'rsatish Akti</h1>
+      <p class="subtitle">Ishni qabul qilish akti — bajarilgan xizmatlar ro'yxati</p>
+    </header>
+
+    <main class="form-card">
+      <div class="step-progress" id="step-progress"></div>
+
+      <form id="act-form" novalidate>
+        <!-- QADAM 1 -->
+        <div class="step-panel active" data-step="1">
+          <h2 class="step-title">Qadam 1: Akt ma'lumotlari</h2>
+          <div class="field"><label>Akt raqami *</label><input type="text" id="act_number" name="act_number" required></div>
+          <div class="field-row">
+            <div class="field"><label>Tuzilgan sana *</label><input type="date" id="act_date" name="act_date" required></div>
+            <div class="field"><label>Tuzilgan joy *</label><input type="text" name="city" placeholder="Toshkent sh." required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Asosiy shartnoma raqami *</label><input type="text" name="contract_number" placeholder="Masalan: MA-2026-001" required></div>
+            <div class="field"><label>Asosiy shartnoma sanasi *</label><input type="date" name="contract_date" required></div>
+          </div>
+        </div>
+
+        <!-- QADAM 2 -->
+        <div class="step-panel" data-step="2">
+          <h2 class="step-title">Qadam 2: Tomonlar</h2>
+          <p class="step-hint">To'liq rekvizitlar asosiy shartnomada ko'rsatilgan — bu yerda faqat nomlar yetarli.</p>
+          <div class="field"><label>Buyurtmachi F.I.Sh. / Tashkilot nomi *</label><input type="text" name="customer_name" required></div>
+          <div class="field"><label>Ijrochi F.I.Sh. / Tashkilot nomi *</label><input type="text" name="executor_name" required></div>
+        </div>
+
+        <!-- QADAM 3 -->
+        <div class="step-panel" data-step="3">
+          <h2 class="step-title">Qadam 3: Bajarilgan ishlar jadvali</h2>
+          <div class="act-table-wrap">
+            <table class="act-table" id="items-table">
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Ishning nomi/tavsifi</th>
+                  <th>Birlik</th>
+                  <th>Miqdori</th>
+                  <th>Narxi</th>
+                  <th>Jami summa</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="items-body"></tbody>
+            </table>
+          </div>
+          <button type="button" id="add-row-btn" class="btn-add-row">+ Qator qo'shish</button>
+          <div class="grand-total-bar">
+            <span>JAMI SUMMA:</span>
+            <strong id="grand-total-display">0 so'm</strong>
+          </div>
+        </div>
+
+        <!-- QADAM 4 -->
+        <div class="step-panel" data-step="4">
+          <h2 class="step-title">Qadam 4: Yakuniy tasdiqlash</h2>
+          <div class="field">
+            <label>Jami summa (raqam) *</label>
+            <input type="number" id="grand_total" name="grand_total" readonly required>
+          </div>
+          <div class="field">
+            <label>Jami summa (so'z bilan)</label>
+            <input type="text" name="grand_total_words" placeholder="Masalan: uch million so'm">
+          </div>
+          <div class="field">
+            <label>Ish sifati qanday baholanadi? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="quality_status" value="Muvaffaqiyatli bajarildi" checked> Muvaffaqiyatli bajarildi</label>
+              <label><input type="radio" name="quality_status" value="Kamchiliklar mavjud"> Kamchiliklar mavjud</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tomonlarning bir-biriga da'vosi bormi? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="has_claims" value="Yo'q" checked> Yo'q</label>
+              <label><input type="radio" name="has_claims" value="Ha" id="claims-yes"> Ha</label>
+            </div>
+          </div>
+          <div class="field hidden" id="claims-details-field">
+            <label>Da'vo tafsiloti</label>
+            <textarea name="claims_details" rows="3" placeholder="Da'vo mazmuni..."></textarea>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" id="prev-btn" class="btn-secondary" disabled>← Orqaga</button>
+          <button type="button" id="next-btn" class="btn-secondary">Keyingi →</button>
+          <button type="submit" id="submit-btn" class="submit-btn hidden">📄 Aktni yaratish</button>
+        </div>
+      </form>
+      <div id="result" class="result hidden"></div>
+    </main>
+
+    <footer class="footer"><p>@HujjatAI_Bot orqali yaratildi</p></footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="act.js"></script>
+</body>
+</html>

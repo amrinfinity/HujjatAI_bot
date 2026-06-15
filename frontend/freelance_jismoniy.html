@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Freelance Shartnoma Jismoniy — Hujjat AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app app-wide">
+    <header class="header">
+      <a href="index.html" class="back-link">← Bosh sahifa</a>
+      <div class="logo">📄</div>
+      <h1>Freelance Shartnoma Jismoniy</h1>
+      <p class="subtitle">10 bo'limli professional shartnoma</p>
+    </header>
+
+    <main class="form-card">
+      <form id="freelance-jismoniy-form" novalidate>
+        <!-- BO'LIM 1 -->
+        <details class="accordion" open>
+          <summary>1. Tomonlar ma'lumotlari</summary>
+          <div class="accordion-body">
+            <h3 class="section-label">Buyurtmachi</h3>
+            <div class="field"><label>Buyurtmachi F.I.Sh. *</label><input type="text" name="client_full_name" required></div>
+            <div class="field"><label>Tug'ilgan sana *</label><input type="date" name="client_birth_date" required></div>
+            <div class="field"><label>Pasport/ID seriya va raqam *</label><input type="text" name="client_passport" required></div>
+            <div class="field"><label>JSHSHIR/PINFL *</label><input type="text" name="client_pinfl" required></div>
+            <div class="field"><label>Yashash manzili *</label><textarea name="client_address" rows="2" required></textarea></div>
+            <div class="field"><label>Telefon *</label><input type="tel" name="client_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="client_email" required></div>
+            <div class="field"><label>Bank karta/hisob raqami</label><input type="text" name="client_bank"></div>
+
+            <h3 class="section-label">Ijrochi</h3>
+            <div class="field"><label>Ijrochi F.I.Sh. *</label><input type="text" name="executor_full_name" required></div>
+            <div class="field"><label>Tug'ilgan sana *</label><input type="date" name="executor_birth_date" required></div>
+            <div class="field"><label>Pasport/ID seriya va raqam *</label><input type="text" name="executor_passport" required></div>
+            <div class="field"><label>JSHSHIR/PINFL *</label><input type="text" name="executor_pinfl" required></div>
+            <div class="field"><label>Manzil *</label><textarea name="executor_address" rows="2" required></textarea></div>
+            <div class="field"><label>Telefon *</label><input type="tel" name="executor_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="executor_email" required></div>
+            <div class="field"><label>Bank rekvizitlari *</label><input type="text" name="executor_bank" required></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 2 -->
+        <details class="accordion">
+          <summary>2. Loyiha haqida</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Loyiha nomi *</label><input type="text" name="project_name" placeholder="Masalan: GO Bozor" required></div>
+            <div class="field">
+              <label>Loyiha turi *</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="project_types" value="Android ilova"> Android ilova</label>
+                <label><input type="checkbox" name="project_types" value="iOS ilova"> iOS ilova</label>
+                <label><input type="checkbox" name="project_types" value="Veb sayt"> Veb sayt</label>
+                <label><input type="checkbox" name="project_types" value="Telegram bot"> Telegram bot</label>
+                <label><input type="checkbox" name="project_types" value="CRM tizim"> CRM tizim</label>
+                <label><input type="checkbox" name="project_types" value="Boshqa"> Boshqa</label>
+              </div>
+            </div>
+            <div class="field"><label>Loyiha qisqacha tavsifi *</label><textarea name="project_description" rows="3" required></textarea></div>
+            <div class="field"><label>Texnik topshiriq</label><textarea name="technical_spec" rows="3"></textarea></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 3 -->
+        <details class="accordion">
+          <summary>3. Muddatlar</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Ish boshlanish sanasi *</label><input type="date" name="start_date" required></div>
+            <div class="field"><label>Ish tugash sanasi *</label><input type="date" name="end_date" required></div>
+            <div class="field"><label>Necha kun ichida topshiriladi *</label><input type="number" name="duration_days" min="1" required></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 4 -->
+        <details class="accordion">
+          <summary>4. To'lov shartlari</summary>
+          <div class="accordion-body">
+            <div class="field-row">
+              <div class="field"><label>Umumiy summa *</label><input type="number" id="total_amount" name="total_amount" min="0" step="0.01" required></div>
+              <div class="field"><label>Valyuta *</label>
+                <select name="currency" id="currency" required>
+                  <option value="UZS">UZS</option>
+                  <option value="USD">USD</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Avans foizi (%)</label><input type="number" id="advance_percent" name="advance_percent" value="30" min="0" max="100"></div>
+              <div class="field"><label>Avans summasi</label><input type="number" id="advance_amount" name="advance_amount" readonly></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Yakuniy to'lov foizi (%)</label><input type="number" id="final_percent" name="final_percent" value="70" min="0" max="100"></div>
+              <div class="field"><label>Yakuniy to'lov summasi</label><input type="number" id="final_amount" name="final_amount" readonly></div>
+            </div>
+            <div class="field">
+              <label>To'lov usuli *</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="payment_methods" value="Karta"> Karta</label>
+                <label><input type="checkbox" name="payment_methods" value="Bank o'tkazmasi"> Bank o'tkazmasi</label>
+                <label><input type="checkbox" name="payment_methods" value="Naqd"> Naqd</label>
+              </div>
+            </div>
+            <div class="field"><label>Kechiktirilgan to'lov penya foizi (%)</label><input type="number" name="penalty_percent" value="0.1" min="0" step="0.01"></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 5 -->
+        <details class="accordion">
+          <summary>5. Ulush (Share Model)</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Sof foydadan ulush (%)</label><input type="number" name="share_percent" value="15" min="0"></div>
+            <div class="field"><label>Ulush necha yil amal qiladi</label><input type="number" name="share_years" value="3" min="1"></div>
+            <div class="field"><label>Hisobot davri *</label>
+              <select name="report_period" required>
+                <option value="Har oy">Har oy</option>
+                <option value="Har chorak">Har chorak</option>
+              </select>
+            </div>
+            <div class="field"><label>To'lov sanasi *</label><input type="text" name="share_payment_date" placeholder="Har oyning 10-15 sanasi" required></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 6 -->
+        <details class="accordion">
+          <summary>6. Qo'llab-quvvatlash</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Kafolat muddati (oy)</label><input type="number" name="warranty_months" value="12" min="0"></div>
+            <div class="field"><label>Bepul yangilash soni</label><input type="number" name="free_updates" value="3" min="0"></div>
+            <div class="field"><label>Javob berish muddati (kun)</label><input type="number" name="response_days" value="3" min="0"></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 7 -->
+        <details class="accordion">
+          <summary>7. Intellektual mulk</summary>
+          <div class="accordion-body">
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="ip_code_after_payment" checked> Kod 100% to'lovdan keyin o'tadi</label>
+              <label><input type="checkbox" name="ip_rights_until_payment" checked> To'lov bo'lmaguncha huquqlar ijrochida</label>
+              <label><input type="checkbox" name="ip_github" checked> GitHub repository topshiriladi</label>
+              <label><input type="checkbox" name="ip_source_code" checked> Source code topshiriladi</label>
+              <label><input type="checkbox" name="ip_database" checked> Database struktura topshiriladi</label>
+              <label><input type="checkbox" name="ip_readme" checked> README topshiriladi</label>
+            </div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 8 -->
+        <details class="accordion">
+          <summary>8. Maxfiylik (NDA)</summary>
+          <div class="accordion-body">
+            <div class="field"><label>NDA kerakmi?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="nda_required" value="true" checked> Ha</label>
+                <label><input type="radio" name="nda_required" value="false"> Yo'q</label>
+              </div>
+            </div>
+            <div class="field"><label>NDA muddati (yil)</label><input type="number" name="nda_years" value="3" min="0"></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 9 -->
+        <details class="accordion">
+          <summary>9. Ishni qabul qilish</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Buyurtmachi tekshirish kuni</label><input type="number" name="acceptance_days" value="10" min="1"></div>
+            <div class="field"><label>Kamchiliklarni tuzatish muddati (kun)</label><input type="number" name="fix_days" value="5" min="1"></div>
+          </div>
+        </details>
+
+        <!-- BO'LIM 10 -->
+        <details class="accordion">
+          <summary>10. Yakuniy rekvizitlar</summary>
+          <div class="accordion-body">
+            <div class="field"><label>Shartnoma raqami *</label><input type="text" id="contract_number" name="contract_number" required></div>
+            <div class="field"><label>Tuzilgan sana *</label><input type="date" id="contract_date" name="contract_date" required></div>
+            <div class="field"><label>Tuzilgan joy *</label><input type="text" name="contract_place" placeholder="Toshkent sh." required></div>
+            <div class="field"><label>Elektron imzo kerakmi?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="electronic_signature" value="true"> Ha</label>
+                <label><input type="radio" name="electronic_signature" value="false" checked> Yo'q</label>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button type="submit" id="submit-btn" class="submit-btn">📄 Shartnomani yaratish</button>
+      </form>
+      <div id="result" class="result hidden"></div>
+    </main>
+
+    <footer class="footer"><p>@HujjatAI_Bot orqali yaratildi</p></footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="freelance_jismoniy.js"></script>
+</body>
+</html>

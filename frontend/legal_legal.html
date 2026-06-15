@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Yuridik-Yuridik Shartnoma — Hujjat AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app app-wide">
+    <header class="header">
+      <a href="index.html" class="back-link">← Bosh sahifa</a>
+      <div class="logo">🏢</div>
+      <h1>Yuridik-Yuridik Shartnoma</h1>
+      <p class="subtitle">Yuridik shaxslar o'rtasidagi xizmat ko'rsatish shartnomasi</p>
+    </header>
+
+    <main class="form-card">
+      <div class="step-progress" id="step-progress"></div>
+
+      <form id="legal-legal-form" novalidate>
+        <!-- QADAM 1 -->
+        <div class="step-panel active" data-step="1">
+          <h2 class="step-title">Qadam 1: Birinchi tomon (Yuridik shaxs)</h2>
+          <div class="field"><label>Tashkilot nomi *</label><input type="text" name="p1_org_name" placeholder="Masalan: Alpha Tech MChJ" required></div>
+          <div class="field-row">
+            <div class="field"><label>Tashkilot shakli *</label>
+              <select name="p1_org_form" required>
+                <option value="MChJ">MChJ</option><option value="OAJ">OAJ</option>
+                <option value="QK">QK</option><option value="YT">YT</option>
+              </select>
+            </div>
+            <div class="field"><label>STIR * (9 raqam)</label><input type="text" name="p1_stir" pattern="\d{9}" maxlength="9" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>MFY *</label><input type="text" name="p1_mfy" required></div>
+            <div class="field"><label>OKED kodi</label><input type="text" name="p1_oked"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Hisob raqami *</label><input type="text" name="p1_account" required></div>
+            <div class="field"><label>Bank nomi *</label><input type="text" name="p1_bank" required></div>
+          </div>
+          <div class="field"><label>MFO *</label><input type="text" name="p1_mfo" required></div>
+          <div class="field"><label>Yuridik manzil *</label><textarea name="p1_legal_address" rows="2" required></textarea></div>
+          <div class="field"><label>Faktik manzil *</label><textarea name="p1_actual_address" rows="2" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Direktor F.I.Sh. *</label><input type="text" name="p1_director" required></div>
+            <div class="field"><label>Direktor lavozimi</label><input type="text" name="p1_director_position" value="Direktor"></div>
+          </div>
+          <div class="field"><label>Ishonchnoma raqami</label><input type="text" name="p1_power"></div>
+          <div class="field-row">
+            <div class="field"><label>Telefon *</label><input type="tel" name="p1_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="p1_email" required></div>
+          </div>
+          <div class="field"><label>Veb-sayt</label><input type="url" name="p1_website" placeholder="https://"></div>
+        </div>
+
+        <!-- QADAM 2 -->
+        <div class="step-panel" data-step="2">
+          <h2 class="step-title">Qadam 2: Ikkinchi tomon (Yuridik shaxs)</h2>
+          <div class="field"><label>Tashkilot nomi *</label><input type="text" name="p2_org_name" placeholder="Masalan: Beta Solutions MChJ" required></div>
+          <div class="field-row">
+            <div class="field"><label>Tashkilot shakli *</label>
+              <select name="p2_org_form" required>
+                <option value="MChJ">MChJ</option><option value="OAJ">OAJ</option>
+                <option value="QK">QK</option><option value="YT">YT</option>
+              </select>
+            </div>
+            <div class="field"><label>STIR * (9 raqam)</label><input type="text" name="p2_stir" pattern="\d{9}" maxlength="9" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>MFY *</label><input type="text" name="p2_mfy" required></div>
+            <div class="field"><label>OKED kodi</label><input type="text" name="p2_oked"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Hisob raqami *</label><input type="text" name="p2_account" required></div>
+            <div class="field"><label>Bank nomi *</label><input type="text" name="p2_bank" required></div>
+          </div>
+          <div class="field"><label>MFO *</label><input type="text" name="p2_mfo" required></div>
+          <div class="field"><label>Yuridik manzil *</label><textarea name="p2_legal_address" rows="2" required></textarea></div>
+          <div class="field"><label>Faktik manzil *</label><textarea name="p2_actual_address" rows="2" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>Direktor F.I.Sh. *</label><input type="text" name="p2_director" required></div>
+            <div class="field"><label>Direktor lavozimi</label><input type="text" name="p2_director_position" value="Direktor"></div>
+          </div>
+          <div class="field"><label>Ishonchnoma raqami</label><input type="text" name="p2_power"></div>
+          <div class="field-row">
+            <div class="field"><label>Telefon *</label><input type="tel" name="p2_phone" required></div>
+            <div class="field"><label>Email *</label><input type="email" name="p2_email" required></div>
+          </div>
+          <div class="field"><label>Veb-sayt</label><input type="url" name="p2_website" placeholder="https://"></div>
+        </div>
+
+        <!-- QADAM 3 -->
+        <div class="step-panel" data-step="3">
+          <h2 class="step-title">Qadam 3: Shartnoma predmeti</h2>
+          <div class="field"><label>Xizmat turi *</label>
+            <select name="service_type" required>
+              <option value="">Tanlang...</option>
+              <option value="Dasturiy ta'minot ishlab chiqish">Dasturiy ta'minot ishlab chiqish</option>
+              <option value="IT konsalting">IT konsalting</option>
+              <option value="Marketing xizmatlari">Marketing xizmatlari</option>
+              <option value="Qurilish ishlari">Qurilish ishlari</option>
+              <option value="Ta'minot (supply)">Ta'minot (supply)</option>
+              <option value="Boshqa">Boshqa</option>
+            </select>
+          </div>
+          <div class="field"><label>Xizmat qisqacha tavsifi *</label><textarea name="service_description" rows="3" required></textarea></div>
+          <div class="field"><label>Ish hajmi/birlik *</label><input type="text" name="work_scope" placeholder="1 dona tizim, 100 soat xizmat" required></div>
+          <div class="field"><label>Texnik topshiriq mavjudmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="has_technical_spec" value="true"> Ha</label>
+              <label><input type="radio" name="has_technical_spec" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- QADAM 4 -->
+        <div class="step-panel" data-step="4">
+          <h2 class="step-title">Qadam 4: Muddatlar</h2>
+          <div class="field"><label>Shartnoma kuchga kirish sanasi *</label><input type="date" name="effective_date" required></div>
+          <div class="field"><label>Ish boshlanish sanasi *</label><input type="date" name="start_date" required></div>
+          <div class="field"><label>Ish tugash sanasi *</label><input type="date" name="end_date" required></div>
+          <div class="field"><label>Necha kun ichida *</label><input type="number" name="duration_days" min="1" required></div>
+          <div class="field"><label>Shartnoma muddati *</label>
+            <select name="contract_term" required>
+              <option value="1 yil">1 yil</option>
+              <option value="2 yil">2 yil</option>
+              <option value="3 yil">3 yil</option>
+              <option value="Cheksiz">Cheksiz</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- QADAM 5 -->
+        <div class="step-panel" data-step="5">
+          <h2 class="step-title">Qadam 5: To'lov shartlari</h2>
+          <div class="field-row">
+            <div class="field"><label>Umumiy summa *</label><input type="number" id="total_amount" name="total_amount" min="0" step="0.01" required></div>
+            <div class="field"><label>Valyuta *</label>
+              <select name="currency" id="currency" required>
+                <option value="UZS">UZS</option><option value="USD">USD</option><option value="EUR">EUR</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label>To'lov turi *</label>
+            <select name="payment_type" id="payment_type" required>
+              <option value="one_time">Bir martalik to'lov</option>
+              <option value="staged">Bosqichma-bosqich to'lov</option>
+              <option value="monthly">Oylik to'lov (abonement)</option>
+            </select>
+          </div>
+          <div id="staged-options" class="hidden">
+            <div class="field"><label>Bosqichlar soni</label><input type="number" id="stages_count" name="stages_count" value="3" min="2" max="6"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Avans foizi (%)</label><input type="number" id="advance_percent" name="advance_percent" value="30" min="0" max="100"></div>
+            <div class="field"><label>Avans summasi</label><input type="number" id="advance_amount" readonly></div>
+          </div>
+          <div class="field"><label>Yakuniy to'lov summasi</label><input type="number" id="final_amount" readonly></div>
+          <div id="stages-preview" class="field"></div>
+          <div class="field">
+            <label>To'lov usuli *</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="payment_methods" value="Bank o'tkazmasi"> Bank o'tkazmasi</label>
+              <label><input type="checkbox" name="payment_methods" value="Akreditiv"> Akreditiv</label>
+              <label><input type="checkbox" name="payment_methods" value="Naqd"> Naqd</label>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Penya foizi (%/kun)</label><input type="number" name="penalty_percent" value="0.1" min="0" step="0.01"></div>
+            <div class="field"><label>Penya maks. muddati (kun)</label><input type="number" name="penalty_max_days" value="30" min="0"></div>
+          </div>
+        </div>
+
+        <!-- QADAM 6 -->
+        <div class="step-panel" data-step="6">
+          <h2 class="step-title">Qadam 6: Sifat va qabul qilish</h2>
+          <div class="field"><label>Sifat standarti *</label><input type="text" name="quality_standard" value="O'zbekiston Davlat Standartlari" required></div>
+          <div class="field-row">
+            <div class="field"><label>Qabul qilish muddati (kun)</label><input type="number" name="acceptance_days" value="10" min="1"></div>
+            <div class="field"><label>Tuzatish muddati (kun)</label><input type="number" name="fix_days" value="5" min="1"></div>
+          </div>
+          <div class="field"><label>Qabul qilish akti kerakmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="acceptance_act_required" value="true" checked> Ha</label>
+              <label><input type="radio" name="acceptance_act_required" value="false"> Yo'q</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- QADAM 7 -->
+        <div class="step-panel" data-step="7">
+          <h2 class="step-title">Qadam 7: Javobgarlik va kafolat</h2>
+          <div class="field"><label>Javobgarlik chegarasi *</label><input type="text" name="liability_limit" value="Shartnoma summasidan oshmaydi" required></div>
+          <div class="field-row">
+            <div class="field"><label>Kafolat muddati (oy)</label><input type="number" name="warranty_months" value="12" min="0"></div>
+            <div class="field"><label>Bepul tuzatishlar soni</label><input type="number" name="free_fixes" value="3" min="0"></div>
+          </div>
+          <div class="field"><label>Sug'urta kerakmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="insurance_required" value="true"> Ha</label>
+              <label><input type="radio" name="insurance_required" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- QADAM 8 -->
+        <div class="step-panel" data-step="8">
+          <h2 class="step-title">Qadam 8: Maxfiylik va intellektual mulk</h2>
+          <div class="field"><label>NDA kerakmi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="nda_required" value="true" checked> Ha</label>
+              <label><input type="radio" name="nda_required" value="false"> Yo'q</label>
+            </div>
+          </div>
+          <div class="field"><label>NDA muddati (yil)</label><input type="number" name="nda_years" value="3" min="0"></div>
+          <div class="field"><label>Intellektual mulk kimga o'tadi? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="ip_owner" value="party_first" checked> Birinchi tomonga</label>
+              <label><input type="radio" name="ip_owner" value="party_second"> Ikkinchi tomonga</label>
+              <label><input type="radio" name="ip_owner" value="joint"> Qo'shma</label>
+            </div>
+          </div>
+          <div class="field"><label>Kod/repozitoriya topshiriladimi?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="repository_transfer" value="true"> Ha</label>
+              <label><input type="radio" name="repository_transfer" value="false" checked> Yo'q</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- QADAM 9 -->
+        <div class="step-panel" data-step="9">
+          <h2 class="step-title">Qadam 9: Yakuniy ma'lumotlar</h2>
+          <div class="field"><label>Shartnoma raqami *</label><input type="text" id="contract_number" name="contract_number" required></div>
+          <div class="field"><label>Tuzilgan sana *</label><input type="date" id="contract_date" name="contract_date" required></div>
+          <div class="field"><label>Tuzilgan joy *</label><input type="text" name="contract_place" placeholder="Toshkent sh." required></div>
+          <div class="field-row">
+            <div class="field"><label>Necha nusxada</label><input type="number" name="copies_count" value="2" min="1"></div>
+            <div class="field"><label>Elektron imzo kerakmi?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="electronic_signature" value="true"> Ha</label>
+                <label><input type="radio" name="electronic_signature" value="false" checked> Yo'q</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" id="prev-btn" class="btn-secondary" disabled>← Orqaga</button>
+          <button type="button" id="next-btn" class="btn-secondary">Keyingi →</button>
+          <button type="submit" id="submit-btn" class="submit-btn hidden">📄 Shartnomani yaratish</button>
+        </div>
+      </form>
+      <div id="result" class="result hidden"></div>
+    </main>
+
+    <footer class="footer"><p>@HujjatAI_Bot orqali yaratildi</p></footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="legal_legal.js"></script>
+</body>
+</html>
